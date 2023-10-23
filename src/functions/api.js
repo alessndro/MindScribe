@@ -1,6 +1,7 @@
 // import { process } from '../env'
 import OpenAI from 'openai'
 import dotenv from 'dotenv'
+import 'dotenv/config'
 
 dotenv.config()
 
@@ -9,6 +10,7 @@ const REACT_APP_OPENAI_API_KEY = process.env.REACT_APP_OPENAI_API_KEY
 const REACT_APP_TEXT_SUM_KEY = process.env.REACT_APP_TEXT_SUM_KEY
 const REACT_APP_FIREBASE_KEY = process.env.REACT_APP_FIREBASE_KEY
 
+console.log(REACT_APP_OPENAI_API_KEY)
 const openai = new OpenAI({
     apiKey: import.meta.env.OPENAI_API_KEY, dangerouslyAllowBrowser: true
 })
