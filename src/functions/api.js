@@ -6,9 +6,12 @@ import process from 'process';
 
 // dotenv.config()
 
-// const TEXT_SUM_KEY = import.meta.env.TEXT_SUM_KEY;
-const REACT_APP_OPENAI_API_KEY = process.env.REACT_APP_OPENAI_API_KEY
-const REACT_APP_TEXT_SUM_KEY = process.env.REACT_APP_TEXT_SUM_KEY
+// const TEXT_SUM_KEY = import.meta.env.TEXT_SUM_KEY
+const REACT_APP_OPENAI_API_KEY = import.meta.env.REACT_APP_OPENAI_API_KEY;
+const REACT_APP_TEXT_SUM_KEY = import.meta.env.REACT_APP_TEXT_SUM_KEY;
+
+// const REACT_APP_OPENAI_API_KEY = process.env.REACT_APP_OPENAI_API_KEY
+// const REACT_APP_TEXT_SUM_KEY = process.env.REACT_APP_TEXT_SUM_KEY
 
 const openai = new OpenAI({
     apiKey: REACT_APP_OPENAI_API_KEY, dangerouslyAllowBrowser: true
