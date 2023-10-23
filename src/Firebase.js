@@ -10,7 +10,7 @@ const REACT_APP_FIREBASE_KEY = process.env.REACT_APP_FIREBASE_KEY
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "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",
+  apiKey: REACT_APP_FIREBASE_KEY,
   authDomain: "mind-scribe-6d4a7.firebaseapp.com",
   projectId: "mind-scribe-6d4a7",
   storageBucket: "mind-scribe-6d4a7.appspot.com",
