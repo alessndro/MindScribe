@@ -9,9 +9,8 @@ import OpenAI from 'openai'
 const REACT_APP_OPENAI_API_KEY = process.env.REACT_APP_OPENAI_API_KEY
 const REACT_APP_TEXT_SUM_KEY = process.env.REACT_APP_TEXT_SUM_KEY
 
-console.log(REACT_APP_OPENAI_API_KEY)
 const openai = new OpenAI({
-    apiKey: import.meta.env.OPENAI_API_KEY, dangerouslyAllowBrowser: true
+    apiKey: REACT_APP_OPENAI_API_KEY, dangerouslyAllowBrowser: true
 })
 
 export default async function fetchTransscript(youtubeId){
