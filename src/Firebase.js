@@ -3,14 +3,14 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth"
 import {getFirestore} from "firebase/firestore"
 
-const FIREBASE_KEY = import.meta.env.FIREBASE_KEY;
+const REACT_APP_FIREBASE_KEY = process.env.REACT_APP_FIREBASE_KEY
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: FIREBASE_KEY,
+  apiKey: REACT_APP_FIREBASE_KEY,
   authDomain: "mind-scribe-6d4a7.firebaseapp.com",
   projectId: "mind-scribe-6d4a7",
   storageBucket: "mind-scribe-6d4a7.appspot.com",
