@@ -1,5 +1,6 @@
 // import { process } from '../env'
 import OpenAI from 'openai'
+import process from 'process';
 // import dotenv from 'dotenv'
 // import 'dotenv/config'
 
