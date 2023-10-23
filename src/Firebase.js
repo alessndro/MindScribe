@@ -2,6 +2,11 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth"
 import {getFirestore} from "firebase/firestore"
+import dotenv from 'dotenv'
+import 'dotenv/config'
+
+dotenv.config()
+
 
 const REACT_APP_FIREBASE_KEY = process.env.REACT_APP_FIREBASE_KEY
 
