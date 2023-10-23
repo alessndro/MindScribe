@@ -1,6 +1,5 @@
 import React from 'react'
 import {linkIcon} from '../assets'
-import { process } from '../env'
 import loaderLogo from '../assets/loader.svg'
 import fetchTransscript, {fetchYoutubeSummary, fetchArticleSummary, fetchCompleteSummary, fetchPracticeQuestions} from '../functions/api'
 import { v4 as uuidv4 } from 'uuid'
