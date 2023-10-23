@@ -7,14 +7,14 @@ import process from 'process';
 // dotenv.config()
 
 // const TEXT_SUM_KEY = import.meta.env.TEXT_SUM_KEY
-const REACT_APP_OPENAI_API_KEY = import.meta.env.REACT_APP_OPENAI_API_KEY;
-const REACT_APP_TEXT_SUM_KEY = import.meta.env.REACT_APP_TEXT_SUM_KEY;
+// const REACT_APP_OPENAI_API_KEY = import.meta.env.REACT_APP_OPENAI_API_KEY;
+// const REACT_APP_TEXT_SUM_KEY = import.meta.env.REACT_APP_TEXT_SUM_KEY;
 
-// const REACT_APP_OPENAI_API_KEY = process.env.REACT_APP_OPENAI_API_KEY
-// const REACT_APP_TEXT_SUM_KEY = process.env.REACT_APP_TEXT_SUM_KEY
+const OPENAI_API_KEY = process.env.REACT_APP_OPENAI_API_KEY
+const TEXT_SUM_KEY = process.env.REACT_APP_TEXT_SUM_KEY
 
 const openai = new OpenAI({
-    apiKey: REACT_APP_OPENAI_API_KEY, dangerouslyAllowBrowser: true
+    apiKey: OPENAI_API_KEY, dangerouslyAllowBrowser: true
 })
 
 export default async function fetchTransscript(youtubeId){
@@ -22,7 +22,7 @@ export default async function fetchTransscript(youtubeId){
         const options = {
                 method: 'GET',
                 headers: {
-                    'X-RapidAPI-Key': REACT_APP_TEXT_SUM_KEY,
+                    'X-RapidAPI-Key': TEXT_SUM_KEY,
                     'X-RapidAPI-Host': 'youtube-transcriptor.p.rapidapi.com'
                 }
         }
@@ -49,7 +49,7 @@ export async function fetchYoutubeSummary(textString)
         method: 'POST',
         headers: {
             'content-type': 'application/x-www-form-urlencoded',
-            'X-RapidAPI-Key': REACT_APP_TEXT_SUM_KEY,
+            'X-RapidAPI-Key': TEXT_SUM_KEY,
             'X-RapidAPI-Host': 'textanalysis-text-summarization.p.rapidapi.com'
         },
         body: new URLSearchParams({
@@ -78,7 +78,7 @@ export async function fetchArticleSummary(articleUrl)
         method: 'POST',
         headers: {
             'content-type': 'application/x-www-form-urlencoded',
-            'X-RapidAPI-Key': REACT_APP_TEXT_SUM_KEY,
+            'X-RapidAPI-Key': TEXT_SUM_KEY,
             'X-RapidAPI-Host': 'textanalysis-text-summarization.p.rapidapi.com'
         },
         body: new URLSearchParams({

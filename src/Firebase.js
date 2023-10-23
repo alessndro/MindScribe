@@ -9,7 +9,8 @@ import process from 'process';
 // dotenv.config()
 
 
-const REACT_APP_FIREBASE_KEY = process.env.REACT_APP_FIREBASE_KEY
+// const REACT_APP_FIREBASE_KEY = process.env.REACT_APP_FIREBASE_KEY
+// const REACT_APP_TEXT_SUM_KEY = import.meta.env.REACT_APP_TEXT_SUM_KEY;
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
