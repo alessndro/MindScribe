@@ -1,9 +1,49 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* 
-  Note: The styles for this gradient grid background is heavily inspired by the creator of this amazing site (https://dub.sh) – all credits go to them! 
-*/
+
+* {
+  box-sizing: border-box;
+  color: black;
+}
+
+#root {
+  height: 100%;
+  min-height: 100vh;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+header h1 {
+  font-family: 'Darker Grotesque', sans-serif;
+}
+
+.log-div {
+  color: black;
+}
+nav h1 {
+  font-family: 'Darker Grotesque', sans-serif;
+}
+body {
+  margin: 0;
+  padding: 0;
+
+  /* https://csshero.org/mesher/ */
+  background-color:hsla(161,0%,100%,1);
+background-image:
+radial-gradient(at 83% 67%, hsla(343,0%,100%,1) 0px, transparent 50%),
+radial-gradient(at 33% 34%, hsla(328,0%,100%,1) 0px, transparent 50%),
+radial-gradient(at 52% 37%, hsla(19,0%,100%,1) 0px, transparent 50%),
+radial-gradient(at 19% 60%, hsla(195,0%,100%,1) 0px, transparent 50%),
+radial-gradient(at 0% 100%, hsla(270,81%,55%,1) 0px, transparent 50%),
+radial-gradient(at 100% 70%, hsla(238,83%,66%,1) 0px, transparent 50%),
+radial-gradient(at 100% 48%, hsla(271,81%,55%,1) 0px, transparent 50%); 
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
 
 .main {
   width: 100vw;
@@ -11,32 +51,60 @@
   position: fixed;
   display: flex;
   justify-content: center;
-  padding: 120px 24px 160px 24px;
   pointer-events: none;
 }
 
-.main:before {
-  background: radial-gradient(circle, rgba(2, 0, 36, 0) 0, #fafafa 100%);
-  position: absolute;
-  content: "";
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  top: 0;
+/* (A) SPEECH BOX */
+.speech {
+  /* (A1) FONT */
+   font-size: 0.9rem;
+ 
+  /* (A2) COLORS */
+  color: #fff;
+  background: #c084fc;
+ 
+  /* (A3) DIMENSIONS + POSITION */
+  position: relative;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 20px auto;
+  max-width: 380px;
 }
 
-.main:after {
+/* (B) ADD SPEECH "CALLOUT TAIL" */
+/* (B1) USE ::AFTER TO CREATE THE "TAIL" */
+.speech::after {
+  /* (B1-1) ATTACH TRANSPARENT BORDERS */
   content: "";
-  background-image: url("/src/assets/grid.svg");
-  z-index: 1;
+  border: 20px solid transparent;
+ 
+  /* (B1-2) NECESSARY TO POSITION THE "TAIL" */
   position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  opacity: 0.4;
-  filter: invert(1);
+}
+ 
+/* (B2) BOTTOM "CALLOUT TAIL" */
+.bottom.speech::after {
+  /* (B2-1) DOWN TRIANGLE */
+  border-top-color: #c084fc;
+  border-bottom: 0;
+ 
+  /* (B2-2) POSITION AT BOTTOM */
+  bottom: -20px; left: 50%;
+  margin-left: -20px;
 }
 
+/* (C) DIFFERENT TAIL POSITIONS */
+/* (C1) TOP */
+.top.speech::after {
+  /* (C1-1) UP TRIANGLE */
+  border-bottom-color: #c084fc;
+  border-top: 0;
+ 
+  /* (C1-2) POSITION AT TOP */
+  top: -20px; left: 50%;
+  margin-left: -20px;
+}
+ 
 .gradient {
   height: fit-content;
   z-index: 3;
@@ -68,8 +136,6 @@
   }
 }
 
-/* Tailwind Styles */
-
 .app {
   @apply relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6;
 }
@@ -82,12 +148,12 @@
   @apply mt-5 text-5xl font-extrabold leading-[1.15] text-black sm:text-6xl text-center;
 }
 
-.orange_gradient {
-  @apply bg-gradient-to-r from-amber-500 via-orange-600 to-yellow-500 bg-clip-text text-transparent;
+.purple-btn {
+  @apply bg-gradient-to-r from-indigo-800 via-purple-600 to-purple-300;
 }
 
 .desc {
-  @apply mt-5 text-lg text-gray-600 sm:text-xl text-center max-w-2xl;
+  @apply mt-5 text-lg text-gray-700  sm:text-xl text-center max-w-2xl;
 }
 
 .url_input {
@@ -112,4 +178,61 @@
 
 .summary_box {
   @apply rounded-xl border border-gray-200 bg-white/20 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur p-4;
+}
+
+/*
+ * react-circular-progressbar styles
+ * All of the styles in this file are configurable!
+ */
+
+ .CircularProgressbar {
+  /*
+   * This fixes an issue where the CircularProgressbar svg has
+   * 0 width inside a "display: flex" container, and thus not visible.
+   */
+  width: 100%;
+  /*
+   * This fixes a centering issue with CircularProgressbarWithChildren:
+   * https://github.com/kevinsqi/react-circular-progressbar/issues/94
+   */
+  vertical-align: middle;
+}
+
+.CircularProgressbar .CircularProgressbar-path {
+  stroke: #3e98c7;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.5s ease 0s;
+}
+
+.CircularProgressbar .CircularProgressbar-trail {
+  stroke: #d6d6d6;
+  /* Used when trail is not full diameter, i.e. when props.circleRatio is set */
+  stroke-linecap: round;
+}
+
+.CircularProgressbar .CircularProgressbar-text {
+  fill: #3e98c7;
+  font-size: 20px;
+  dominant-baseline: middle;
+  text-anchor: middle;
+}
+
+.CircularProgressbar .CircularProgressbar-background {
+  fill: #d6d6d6;
+}
+
+.CircularProgressbar.CircularProgressbar-inverted .CircularProgressbar-background {
+  fill: #3e98c7;
+}
+
+.CircularProgressbar.CircularProgressbar-inverted .CircularProgressbar-text {
+  fill: #fff;
+}
+
+.CircularProgressbar.CircularProgressbar-inverted .CircularProgressbar-path {
+  stroke: #fff;
+}
+
+.CircularProgressbar.CircularProgressbar-inverted .CircularProgressbar-trail {
+  stroke: transparent;
 }

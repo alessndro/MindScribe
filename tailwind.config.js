@@ -6,6 +6,11 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        'lightPurple': '#A598FF',
+        'mediumPurple': "#7D6BFE",
+        'hardPurple': "#5E47F8",
+      },
       fontFamily: {
         satoshi: ["Satoshi", "sans-serif"],
         inter: ["Inter", "sans-serif"]
@@ -14,4 +19,3 @@ export default {
   },
   plugins: [],
 }
-
