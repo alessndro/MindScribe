@@ -1,6 +1,8 @@
 // import { process } from '../env'
 import OpenAI from 'openai'
-require('dotenv').config()
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 // const TEXT_SUM_KEY = import.meta.env.TEXT_SUM_KEY;
 const REACT_APP_OPENAI_API_KEY = process.env.REACT_APP_OPENAI_API_KEY
