@@ -125,6 +125,21 @@ export async function fetchPracticeQuestions(completeSummary) {
     return result.value   
 }
 
+export async function fetchTutorResponse(shortSummary, prevQuestion) {
+
+    const url = 'https://lighthearted-tulumba-ad8574.netlify.app/.netlify/functions/OpenAiTutor'
+    
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'content-type': 'text/plain',
+        },
+        body: {shortSummary, prevQuestion}
+    })
+
+    const result = await response.json();
+    return result.value   
+}
 
 
 //////////////////////////////////////////////////////////////

@@ -1,6 +1,6 @@
 import React from 'react'
 import Spline from '@splinetool/react-spline';
-// import {fetchTutorResponse} from '../functions/api'
+import {fetchTutorResponse} from '../functions/api'
 import { useOutletContext } from "react-router-dom";
 
 export default function Questions() {
@@ -25,9 +25,12 @@ export default function Questions() {
     }
 
     async function fetchTutorResponseData(shortSumary, prevQuestion){
-        const response = await fetchTutorResponse(shortSumary, prevQuestion)
-        console.log(response)
-        setCurrentAnswer(response)      
+        try {
+            const response = await fetchTutorResponse(shortSumary, prevQuestion)
+            setCurrentAnswer(response)
+        } catch (error) {
+            setError(error)
+        }      
     }
 
     return (
