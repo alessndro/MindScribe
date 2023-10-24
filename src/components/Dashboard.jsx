@@ -243,7 +243,7 @@ export default function Dashboard() {
                 setLoading(true)
                 try {
                     const data = await fetchTransscript(currentSummarizeObject.youtubeId)
-                    console.log('data')
+                    console.log(data)
                     setCurrentSummarizeObject(prevObject => {
                         return {
                             ...prevObject,
