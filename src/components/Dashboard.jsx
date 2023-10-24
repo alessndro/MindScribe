@@ -2,7 +2,7 @@ import React from 'react'
 import {linkIcon} from '../assets'
 import loaderLogo from '../assets/loader.svg'
 // import fetchTransscript, {fetchYoutubeSummary, fetchArticleSummary, fetchCompleteSummary, fetchPracticeQuestions} from '../functions/api'
-import { fetchYoutubeSummary , fetchArticleSummary} from '../functions/api'
+import { fetchYoutubeSummary , fetchArticleSummary, fetchCompleteSummary} from '../functions/api'
 import fetchTransscript from '../functions/api'
 import { v4 as uuidv4 } from 'uuid'
 import { NavLink, Outlet } from 'react-router-dom'
@@ -308,32 +308,31 @@ export default function Dashboard() {
     
     // //  After either youtube url or article url created incomplete summary, use this incomplete summary and OPEN AI to fetch complete summary, including
     // // title, keypoints, short summary
-    // React.useEffect(() => {
-    //     if (currentSummarizeObject.incompleteSummary && !currentSummarizeObject.isRan)
-    //     {
-    //         console.log('@@@ 3 HANDLE FETCHING COMPLETE SUMMARY- OPEN AI @@@@')
-    //         async function fetchCompleteSummaryData() {
-    //             setLoading(true)
-    //             try {
-    //                 const inputSummary = currentSummarizeObject.incompleteSummary
-    //                 const data = await fetchCompleteSummary(inputSummary)
-    //                 setCurrentSummarizeObject(prevObject => {
-    //                     return {
-    //                         ...prevObject,
-    //                         completeSummary:
-    //                         {
-    //                             ...data
-    //                         }
-    //                     }
-    //                 })
-    //             // Removed catching and also throwing error, because of This model version is deprecated. Migrate before January 4, 2024 to avoid disruption of service
-    //             } finally {
-    //                 setLoading(false)
-    //             }
-    //         }
-    //         fetchCompleteSummaryData()
-    //     }
-    // }, [currentSummarizeObject.incompleteSummary])
+    React.useEffect(() => {
+        if (currentSummarizeObject.incompleteSummary && !currentSummarizeObject.isRan)
+        {
+            async function fetchCompleteSummaryData() {
+                setLoading(true)
+                try {
+                    const inputSummary = currentSummarizeObject.incompleteSummary
+                    const data = await fetchCompleteSummary(inputSummary)
+                    setCurrentSummarizeObject(prevObject => {
+                        return {
+                            ...prevObject,
+                            completeSummary:
+                            {
+                                ...data
+                            }
+                        }
+                    })
+                // Removed catching and also throwing error, because of This model version is deprecated. Migrate before January 4, 2024 to avoid disruption of service
+                } finally {
+                    setLoading(false)
+                }
+            }
+            fetchCompleteSummaryData()
+        }
+    }, [currentSummarizeObject.incompleteSummary])
 
     // // Fetch questions with answers for completed summaries 
     // React.useEffect(() => {

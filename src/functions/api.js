@@ -10,7 +10,7 @@ import process from 'process';
 // const REACT_APP_OPENAI_API_KEY = import.meta.env.REACT_APP_OPENAI_API_KEY;
 // const REACT_APP_TEXT_SUM_KEY = import.meta.env.REACT_APP_TEXT_SUM_KEY;
 
-// const OPENAI_API_KEY = process.env.REACT_APP_OPENAI_API_KEY
+// const OPENAI_API_KEY = process.env.OPENAI_API_KEY
 // const TEXT_SUM_KEY = process.env.REACT_APP_TEXT_SUM_KEY
 
 // const openai = new OpenAI({
@@ -78,8 +78,7 @@ export async function fetchYoutubeSummary(textString){
     return result.value
 }
 
-export async function fetchArticleSummary(articleUrl)
-{
+export async function fetchArticleSummary(articleUrl){
     const url = 'https://lighthearted-tulumba-ad8574.netlify.app/.netlify/functions/fetchArticleIncompleteSummary'
     
     const response = await fetch(url, {
@@ -93,6 +92,23 @@ export async function fetchArticleSummary(articleUrl)
     const result = await response.json();
     return result.value
 }
+
+export async function fetchCompleteSummary(incompleteSummary) {
+
+    const url = 'https://lighthearted-tulumba-ad8574.netlify.app/.netlify/functions/OpenAiCompleteSummary'
+    
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'content-type': 'text/plain',
+        },
+        body: incompleteSummary
+    })
+
+    const result = await response.json();
+    return result.value   
+}
+
 
 //////////////////////////////////////////////////////////////
 // export async function fetchYoutubeSummary(textString)
