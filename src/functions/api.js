@@ -58,8 +58,9 @@ export default async function fetchTransscript(youtubeId){
         body: youtubeId
     })
 
-    console.log('RESULT INSIDE API.JS fetching the severless function')
+    console.log('RESULT INSIDE API.JS fetching the severless function, returned to dashboard')
     const result = await response.json();
+    console.log(result)
     return result
 }
 //////////////////////////////////////////////////////////////
