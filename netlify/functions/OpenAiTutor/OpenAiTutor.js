@@ -8,9 +8,8 @@ const openai = new OpenAI({
 
 const handler = async (event) => {
   try {
-    console.log('INSIDE SEVERLESS TUTOR')
-    console.log(event.body.shortSummary)
-    console.log(event.body.prevQuestion)
+    console.log('inside tutor severless')
+    console.log(event.body)
     const response = await openai.completions.create({
           model:'text-davinci-003',
           prompt: `You are a highly knowledgeable assistant that is always happy to help. You gave the student the following summary:${event.body.shortSummary}. Now the student asks you ${event.body.prevQuestion}. Respond the question in a friendly and supportive but also concise manner`,
