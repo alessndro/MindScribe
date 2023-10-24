@@ -53,7 +53,7 @@ export default async function fetchTransscript(youtubeId){
     const response = await fetch(url, {
         method: "POST",
         headers: {
-            'content-type': 'text/plain'
+            'content-type': 'text/plain',
         },
         body: youtubeId
     })

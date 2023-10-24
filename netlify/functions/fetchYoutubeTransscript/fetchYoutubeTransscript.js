@@ -1,5 +1,5 @@
 
-const TEXT_SUM_KEY = process.env.REACT_APP_TEXT_SUM_KEY
+const TEXT_SUM_KEY = process.env.TEXT_SUM_KEY
 
 const handler = async (event) => {
   try {
