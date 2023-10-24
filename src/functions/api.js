@@ -66,7 +66,6 @@ export async function fetchYoutubeSummary(textString){
 
     const url = 'https://lighthearted-tulumba-ad8574.netlify.app/.netlify/functions/fetchYoutubeIncompleteSummary'
     
-    console.log('Fetching to severless function fetching incomplete summary')
     const response = await fetch(url, {
         method: 'POST',
         headers: {
@@ -75,11 +74,26 @@ export async function fetchYoutubeSummary(textString){
         body: textString
     })
 
-    console.log('RESULT INSIDE API.JS fetching the severless function, returned to dashboard')
     const result = await response.json();
-    console.log(result)
     return result.value
 }
+
+export async function fetchArticleSummary(articleUrl)
+{
+    const url = 'https://lighthearted-tulumba-ad8574.netlify.app/.netlify/functions/fetchArticleIncompleteSummary'
+    
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'content-type': 'text/plain',
+        },
+        body: articleUrl
+    })
+
+    const result = await response.json();
+    return result.value
+}
+
 //////////////////////////////////////////////////////////////
 // export async function fetchYoutubeSummary(textString)
 // {

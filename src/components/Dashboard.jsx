@@ -2,7 +2,7 @@ import React from 'react'
 import {linkIcon} from '../assets'
 import loaderLogo from '../assets/loader.svg'
 // import fetchTransscript, {fetchYoutubeSummary, fetchArticleSummary, fetchCompleteSummary, fetchPracticeQuestions} from '../functions/api'
-import { fetchYoutubeSummary} from '../functions/api'
+import { fetchYoutubeSummary , fetchArticleSummary} from '../functions/api'
 import fetchTransscript from '../functions/api'
 import { v4 as uuidv4 } from 'uuid'
 import { NavLink, Outlet } from 'react-router-dom'
@@ -282,29 +282,29 @@ export default function Dashboard() {
 
      
     // // Fetch article's summary with the url
-    // React.useEffect(() => {
-    //     if (currentSummarizeObject.articleId && !currentSummarizeObject.isRan)
-    //     {
-    //         async function fetchArticleSummaryData() {
-    //             setLoading(true)
-    //             try {
-    //                 const data = await fetchArticleSummary(currentSummarizeObject.url)
+    React.useEffect(() => {
+        if (currentSummarizeObject.articleId && !currentSummarizeObject.isRan)
+        {
+            async function fetchArticleSummaryData() {
+                setLoading(true)
+                try {
+                    const data = await fetchArticleSummary(currentSummarizeObject.url)
                 
-    //                 setCurrentSummarizeObject(prevObject => {
-    //                     return {
-    //                         ...prevObject,
-    //                         incompleteSummary: data }
-    //                })
-    //             } catch (error) {
-    //                 setError(error)
-    //             } finally {
-    //                 setLoading(false)
+                    setCurrentSummarizeObject(prevObject => {
+                        return {
+                            ...prevObject,
+                            incompleteSummary: data }
+                   })
+                } catch (error) {
+                    setError(error)
+                } finally {
+                    setLoading(false)
 
-    //             }
-    //         }
-    //         fetchArticleSummaryData()
-    //     }
-    // }, [currentSummarizeObject.articleId])
+                }
+            }
+            fetchArticleSummaryData()
+        }
+    }, [currentSummarizeObject.articleId])
     
     // //  After either youtube url or article url created incomplete summary, use this incomplete summary and OPEN AI to fetch complete summary, including
     // // title, keypoints, short summary
