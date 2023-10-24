@@ -1,6 +1,6 @@
 import React from 'react'
 import Spline from '@splinetool/react-spline';
-import {fetchTutorResponse} from '../functions/api'
+// import {fetchTutorResponse} from '../functions/api'
 import { useOutletContext } from "react-router-dom";
 
 export default function Questions() {
