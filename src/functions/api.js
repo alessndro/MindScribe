@@ -129,12 +129,17 @@ export async function fetchTutorResponse(shortSummary, prevQuestion) {
 
     const url = 'https://lighthearted-tulumba-ad8574.netlify.app/.netlify/functions/OpenAiTutor'
     
+    const requestData = {
+        shortSummary: shortSummary,
+        prevQuestion: prevQuestion
+    };
+
     const response = await fetch(url, {
         method: 'POST',
         headers: {
             'content-type': 'text/plain',
         },
-        body: {shortSummary, prevQuestion}
+        body: {requestData}
     })
 
     const result = await response.json();
