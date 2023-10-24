@@ -38,8 +38,9 @@ const handler = async (event) => {
                    answers: answersObjectArray,
                    correct: questionObject.correctAnswer
                }
+            
           })               
-    return {
+      return {
       statusCode: 200,
       body: JSON.stringify({ value: newObjectArray}),
     }
