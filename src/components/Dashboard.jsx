@@ -1,7 +1,7 @@
 import React from 'react'
 import {linkIcon} from '../assets'
 import loaderLogo from '../assets/loader.svg'
-import fetchTransscript, {fetchYoutubeSummary, fetchArticleSummary, fetchCompleteSummary, fetchPracticeQuestions} from '../functions/api'
+// import fetchTransscript, {fetchYoutubeSummary, fetchArticleSummary, fetchCompleteSummary, fetchPracticeQuestions} from '../functions/api'
 import { v4 as uuidv4 } from 'uuid'
 import { NavLink, Outlet } from 'react-router-dom'
 import {collection, onSnapshot, addDoc} from 'firebase/firestore'
@@ -102,7 +102,6 @@ export default function Dashboard() {
                             ...prevObject,
                             youtubeId: currentVideoID }
                     })
-                    console.log(currentSummarizeObject)
                 }
                 
                 // If NOT youtube, it's article, provide article id
@@ -257,111 +256,111 @@ export default function Dashboard() {
         }, [currentSummarizeObject.youtubeId])
 
     // (2) Fetch youtube's video summary with the transscript
-    React.useEffect(() => {
-        if (currentSummarizeObject.youtubeTransscript && !currentSummarizeObject.isRan)
-        {
-            const transString = currentSummarizeObject.youtubeTransscript.join(' ')
-            async function fetchYoutubeSummaryData() {
-                setLoading(true)
-                try {
-                    const data = await fetchYoutubeSummary(transString)
-                    setCurrentSummarizeObject(prevObject => {
-                        return {
-                            ...prevObject,
-                            incompleteSummary: data }})
-                } catch (error) {
-                    setError(error)
-                } finally {
-                    setLoading(false)
-                }
-            }
-            fetchYoutubeSummaryData()
-        }
-    }, [currentSummarizeObject.youtubeTransscript])
+    // React.useEffect(() => {
+    //     if (currentSummarizeObject.youtubeTransscript && !currentSummarizeObject.isRan)
+    //     {
+    //         const transString = currentSummarizeObject.youtubeTransscript.join(' ')
+    //         async function fetchYoutubeSummaryData() {
+    //             setLoading(true)
+    //             try {
+    //                 const data = await fetchYoutubeSummary(transString)
+    //                 setCurrentSummarizeObject(prevObject => {
+    //                     return {
+    //                         ...prevObject,
+    //                         incompleteSummary: data }})
+    //             } catch (error) {
+    //                 setError(error)
+    //             } finally {
+    //                 setLoading(false)
+    //             }
+    //         }
+    //         fetchYoutubeSummaryData()
+    //     }
+    // }, [currentSummarizeObject.youtubeTransscript])
 
      
-    // Fetch article's summary with the url
-    React.useEffect(() => {
-        if (currentSummarizeObject.articleId && !currentSummarizeObject.isRan)
-        {
-            async function fetchArticleSummaryData() {
-                setLoading(true)
-                try {
-                    const data = await fetchArticleSummary(currentSummarizeObject.url)
+    // // Fetch article's summary with the url
+    // React.useEffect(() => {
+    //     if (currentSummarizeObject.articleId && !currentSummarizeObject.isRan)
+    //     {
+    //         async function fetchArticleSummaryData() {
+    //             setLoading(true)
+    //             try {
+    //                 const data = await fetchArticleSummary(currentSummarizeObject.url)
                 
-                    setCurrentSummarizeObject(prevObject => {
-                        return {
-                            ...prevObject,
-                            incompleteSummary: data }
-                   })
-                } catch (error) {
-                    setError(error)
-                } finally {
-                    setLoading(false)
+    //                 setCurrentSummarizeObject(prevObject => {
+    //                     return {
+    //                         ...prevObject,
+    //                         incompleteSummary: data }
+    //                })
+    //             } catch (error) {
+    //                 setError(error)
+    //             } finally {
+    //                 setLoading(false)
 
-                }
-            }
-            fetchArticleSummaryData()
-        }
-    }, [currentSummarizeObject.articleId])
+    //             }
+    //         }
+    //         fetchArticleSummaryData()
+    //     }
+    // }, [currentSummarizeObject.articleId])
     
-    //  After either youtube url or article url created incomplete summary, use this incomplete summary and OPEN AI to fetch complete summary, including
-    // title, keypoints, short summary
-    React.useEffect(() => {
-        if (currentSummarizeObject.incompleteSummary && !currentSummarizeObject.isRan)
-        {
-            console.log('@@@ 3 HANDLE FETCHING COMPLETE SUMMARY- OPEN AI @@@@')
-            async function fetchCompleteSummaryData() {
-                setLoading(true)
-                try {
-                    const inputSummary = currentSummarizeObject.incompleteSummary
-                    const data = await fetchCompleteSummary(inputSummary)
-                    setCurrentSummarizeObject(prevObject => {
-                        return {
-                            ...prevObject,
-                            completeSummary:
-                            {
-                                ...data
-                            }
-                        }
-                    })
-                // Removed catching and also throwing error, because of This model version is deprecated. Migrate before January 4, 2024 to avoid disruption of service
-                } finally {
-                    setLoading(false)
-                }
-            }
-            fetchCompleteSummaryData()
-        }
-    }, [currentSummarizeObject.incompleteSummary])
+    // //  After either youtube url or article url created incomplete summary, use this incomplete summary and OPEN AI to fetch complete summary, including
+    // // title, keypoints, short summary
+    // React.useEffect(() => {
+    //     if (currentSummarizeObject.incompleteSummary && !currentSummarizeObject.isRan)
+    //     {
+    //         console.log('@@@ 3 HANDLE FETCHING COMPLETE SUMMARY- OPEN AI @@@@')
+    //         async function fetchCompleteSummaryData() {
+    //             setLoading(true)
+    //             try {
+    //                 const inputSummary = currentSummarizeObject.incompleteSummary
+    //                 const data = await fetchCompleteSummary(inputSummary)
+    //                 setCurrentSummarizeObject(prevObject => {
+    //                     return {
+    //                         ...prevObject,
+    //                         completeSummary:
+    //                         {
+    //                             ...data
+    //                         }
+    //                     }
+    //                 })
+    //             // Removed catching and also throwing error, because of This model version is deprecated. Migrate before January 4, 2024 to avoid disruption of service
+    //             } finally {
+    //                 setLoading(false)
+    //             }
+    //         }
+    //         fetchCompleteSummaryData()
+    //     }
+    // }, [currentSummarizeObject.incompleteSummary])
 
-    // Fetch questions with answers for completed summaries 
-    React.useEffect(() => {
-        if (currentSummarizeObject.completeSummary && !currentSummarizeObject.isRan)
-        {
-            // Fetch open AI to retrieve practice questions based on the complete summary
-            async function fetchPracticeQuestionsData() {
-                setLoading(true)
-                try {
-                    const completeSummary = currentSummarizeObject.completeSummary.shortSummary
-                    const data = await fetchPracticeQuestions(completeSummary)
+    // // Fetch questions with answers for completed summaries 
+    // React.useEffect(() => {
+    //     if (currentSummarizeObject.completeSummary && !currentSummarizeObject.isRan)
+    //     {
+    //         // Fetch open AI to retrieve practice questions based on the complete summary
+    //         async function fetchPracticeQuestionsData() {
+    //             setLoading(true)
+    //             try {
+    //                 const completeSummary = currentSummarizeObject.completeSummary.shortSummary
+    //                 const data = await fetchPracticeQuestions(completeSummary)
                    
-                    setCurrentSummarizeObject(prevObject => {
-                        return {
-                            ...prevObject,
-                            practiceQuestions:
-                            [
-                                ...data
-                            ]
-                        }
-                    })
-                // Removed catching and also throwing error, because of This model version is deprecated. Migrate before January 4, 2024 to avoid disruption of service
-                } finally {
-                    setLoading(false)
-                }
-            }
-            fetchPracticeQuestionsData()
-        }
-    }, [currentSummarizeObject.completeSummary])
+    //                 setCurrentSummarizeObject(prevObject => {
+    //                     return {
+    //                         ...prevObject,
+    //                         practiceQuestions:
+    //                         [
+    //                             ...data
+    //                         ]
+    //                     }
+    //                 })
+    //             // Removed catching and also throwing error, because of This model version is deprecated. Migrate before January 4, 2024 to avoid disruption of service
+    //             } finally {
+    //                 setLoading(false)
+    //             }
+    //         }
+    //         fetchPracticeQuestionsData()
+    //     }
+    // }, [currentSummarizeObject.completeSummary])
 
     return (
         <div className='flex flex-col container mx-auto p-6 gap-4 md:flex-row'>
