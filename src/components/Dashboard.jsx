@@ -411,7 +411,7 @@ export default function Dashboard() {
                 </div>
             </div>
             <div className='flex flex-col  bg-white-900 rounded-md shadow-xl md:w-1/2'>
-
+                { currentSummarizeObject.incompleteSummary && currentSummarizeObject.incompleteSummary}
                 {currentSummarizeObject.completeSummary && 
                     <div className='flex flex-col  bg-white-900 h-full p-10'>
 
