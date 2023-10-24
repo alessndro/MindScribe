@@ -24,6 +24,21 @@ The development of MindScribe was driven by my determination to create a tool th
 
 ![Homepage demo](https://github.com/alessndro/MindScribe/blob/main/src/assets/home.gif)
 
+## Home
+![Homepage](https://github.com/alessndro/MindScribe/blob/main/src/assets/home.png)
+
+## Dashboard
+![Homepage](https://github.com/alessndro/MindScribe/blob/main/src/assets/dashboard.png)
+
+## Dashboard - Summary
+![Summary](https://github.com/alessndro/MindScribe/blob/main/src/assets/dashboardSummary.png)
+
+## Dashboard - Practice
+![Practice](https://github.com/alessndro/MindScribe/blob/main/src/assets/dashboardPractice.png)
+
+## Dashboard - Tutor
+![Tutor](https://github.com/alessndro/MindScribe/blob/main/src/assets/dashboardTutor.png)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### ✨ [Demo](https://lighthearted-tulumba-ad8574.netlify.app)
