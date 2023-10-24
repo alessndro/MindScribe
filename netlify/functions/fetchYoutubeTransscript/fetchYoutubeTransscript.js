@@ -29,7 +29,9 @@ const handler = async (event) => {
     console.log(transscript)
     return {
       statusCode: 200,
-      body: JSON.stringify({ value: transscript }),
+      body: JSON.stringify(
+        { value: transscript 
+        }),
     }
   } catch (error) {
     return { statusCode: 500, body: error.toString() }

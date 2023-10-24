@@ -51,19 +51,16 @@ export default async function fetchTransscript(youtubeId){
     
     console.log('Fetching to severless function')
     const response = await fetch(url, {
-        method: "POST",
+        method: 'POST',
         headers: {
             'content-type': 'text/plain',
         },
         body: youtubeId
     })
 
+    console.log('RESULT INSIDE API.JS fetching the severless function')
     const result = await response.json();
-    const transscript = result[0].transcription.map((sentence) => {
-        return sentence.subtitle
-    })
-    console.log(transscript)
-    return transscript
+    return result
 }
 //////////////////////////////////////////////////////////////
 // export async function fetchYoutubeSummary(textString)
