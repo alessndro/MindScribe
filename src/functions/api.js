@@ -43,12 +43,10 @@ import process from 'process';
 //         return transscript
 // }
 
-
-
 // TEST severless function
 export default async function fetchTransscript(youtubeId){
 
-    const url = 'https://app.netlify.app/.netlify/functions/fetchYoutubeTransscript'
+    const url = 'https://lighthearted-tulumba-ad8574.netlify.app/.netlify/functions/fetchYoutubeTransscript'
     
     const response = await fetch(url, {
         method: "POST",

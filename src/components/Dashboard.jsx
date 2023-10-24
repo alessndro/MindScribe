@@ -2,6 +2,7 @@ import React from 'react'
 import {linkIcon} from '../assets'
 import loaderLogo from '../assets/loader.svg'
 // import fetchTransscript, {fetchYoutubeSummary, fetchArticleSummary, fetchCompleteSummary, fetchPracticeQuestions} from '../functions/api'
+import fetchTransscript from '../functions/api'
 import { v4 as uuidv4 } from 'uuid'
 import { NavLink, Outlet } from 'react-router-dom'
 import {collection, onSnapshot, addDoc} from 'firebase/firestore'
@@ -237,10 +238,12 @@ export default function Dashboard() {
         if (currentSummarizeObject.youtubeId && !currentSummarizeObject.isRan)
         {
             console.log('inside use effect')
+            console.log(currentSummarizeObject)
             async function fetchTransscriptData() {
                 setLoading(true)
                 try {
                     const data = await fetchTransscript(currentSummarizeObject.youtubeId)
+                    console.log('data')
                     setCurrentSummarizeObject(prevObject => {
                         return {
                             ...prevObject,
