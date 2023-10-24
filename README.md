@@ -44,7 +44,7 @@ The development of MindScribe was driven by my determination to create a tool th
 
 ### 🏠 [Homepage](https://lighthearted-tulumba-ad8574.netlify.app)
 
-![Homepage demo](https://github.com/alessndro/MindScribe/src/assets/home.gif)
+![Homepage demo](https://github.com/alessndro/MindScribe/blob/main/src/assets/home.gif))
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
