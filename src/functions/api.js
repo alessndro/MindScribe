@@ -109,6 +109,23 @@ export async function fetchCompleteSummary(incompleteSummary) {
     return result.value   
 }
 
+export async function fetchPracticeQuestions(completeSummary) {
+
+    const url = 'https://lighthearted-tulumba-ad8574.netlify.app/.netlify/functions/OpenAiCreateQuestions'
+    
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'content-type': 'text/plain',
+        },
+        body: completeSummary
+    })
+
+    const result = await response.json();
+    return result.value   
+}
+
+
 
 //////////////////////////////////////////////////////////////
 // export async function fetchYoutubeSummary(textString)

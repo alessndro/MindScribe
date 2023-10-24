@@ -334,34 +334,34 @@ export default function Dashboard() {
         }
     }, [currentSummarizeObject.incompleteSummary])
 
-    // // Fetch questions with answers for completed summaries 
-    // React.useEffect(() => {
-    //     if (currentSummarizeObject.completeSummary && !currentSummarizeObject.isRan)
-    //     {
-    //         // Fetch open AI to retrieve practice questions based on the complete summary
-    //         async function fetchPracticeQuestionsData() {
-    //             setLoading(true)
-    //             try {
-    //                 const completeSummary = currentSummarizeObject.completeSummary.shortSummary
-    //                 const data = await fetchPracticeQuestions(completeSummary)
+    // Fetch questions with answers for completed summaries 
+    React.useEffect(() => {
+        if (currentSummarizeObject.completeSummary && !currentSummarizeObject.isRan)
+        {
+            // Fetch open AI to retrieve practice questions based on the complete summary
+            async function fetchPracticeQuestionsData() {
+                setLoading(true)
+                try {
+                    const completeSummary = currentSummarizeObject.completeSummary.shortSummary
+                    const data = await fetchPracticeQuestions(completeSummary)
                    
-    //                 setCurrentSummarizeObject(prevObject => {
-    //                     return {
-    //                         ...prevObject,
-    //                         practiceQuestions:
-    //                         [
-    //                             ...data
-    //                         ]
-    //                     }
-    //                 })
-    //             // Removed catching and also throwing error, because of This model version is deprecated. Migrate before January 4, 2024 to avoid disruption of service
-    //             } finally {
-    //                 setLoading(false)
-    //             }
-    //         }
-    //         fetchPracticeQuestionsData()
-    //     }
-    // }, [currentSummarizeObject.completeSummary])
+                    setCurrentSummarizeObject(prevObject => {
+                        return {
+                            ...prevObject,
+                            practiceQuestions:
+                            [
+                                ...data
+                            ]
+                        }
+                    })
+                // Removed catching and also throwing error, because of This model version is deprecated. Migrate before January 4, 2024 to avoid disruption of service
+                } finally {
+                    setLoading(false)
+                }
+            }
+            fetchPracticeQuestionsData()
+        }
+    }, [currentSummarizeObject.completeSummary])
 
     return (
         <div className='flex flex-col container mx-auto p-6 gap-4 md:flex-row'>
@@ -410,7 +410,6 @@ export default function Dashboard() {
                 </div>
             </div>
             <div className='flex flex-col  bg-white-900 rounded-md shadow-xl md:w-1/2'>
-                { currentSummarizeObject.incompleteSummary && currentSummarizeObject.incompleteSummary}
                 {currentSummarizeObject.completeSummary && 
                     <div className='flex flex-col  bg-white-900 h-full p-10'>
 
