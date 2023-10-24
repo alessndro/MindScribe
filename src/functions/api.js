@@ -139,7 +139,7 @@ export async function fetchTutorResponse(shortSummary, prevQuestion) {
         headers: {
             'content-type': 'text/plain',
         },
-        body: {requestData}
+        body: requestData
     })
 
     const result = await response.json();
