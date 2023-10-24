@@ -236,6 +236,7 @@ export default function Dashboard() {
     React.useEffect(() => {
         if (currentSummarizeObject.youtubeId && !currentSummarizeObject.isRan)
         {
+            console.log('inside use effect')
             async function fetchTransscriptData() {
                 setLoading(true)
                 try {
