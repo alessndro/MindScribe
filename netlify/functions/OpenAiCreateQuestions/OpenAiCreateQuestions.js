@@ -19,6 +19,7 @@ const handler = async (event) => {
           const removedNewLinesObject = trimmedObject.replace(regex, '');
           const object = JSON.parse(removedNewLinesObject)
       
+          if (!object){
           const newObjectArray = object.map((questionObject) => {
                // save old value in list
                let answers = questionObject.wrongAnswers
@@ -40,7 +41,7 @@ const handler = async (event) => {
                }
             
           })  
-      console.log(newObjectArray)             
+        }       
       return {
       statusCode: 200,
       body: JSON.stringify({ value: newObjectArray}),
