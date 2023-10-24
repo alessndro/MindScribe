@@ -43,13 +43,11 @@ import process from 'process';
 //         return transscript
 // }
 
-// TEST severless function
+// TEST severless function 1
 export default async function fetchTransscript(youtubeId){
 
-    console.log('Inside Fetch Transscript - API.js')
     const url = 'https://lighthearted-tulumba-ad8574.netlify.app/.netlify/functions/fetchYoutubeTransscript'
     
-    console.log('Fetching to severless function')
     const response = await fetch(url, {
         method: 'POST',
         headers: {
@@ -58,10 +56,29 @@ export default async function fetchTransscript(youtubeId){
         body: youtubeId
     })
 
+    const result = await response.json();
+    return result.value.join(" ")
+}
+//////////////////////////////////////////////////////////////
+
+// TEST severless function 2
+export async function fetchYoutubeSummary(textString){
+
+    const url = 'https://lighthearted-tulumba-ad8574.netlify.app/.netlify/functions/fetchYoutubeIncompleteSummary'
+    
+    console.log('Fetching to severless function fetching incomplete summary')
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'content-type': 'text/plain',
+        },
+        body: textString
+    })
+
     console.log('RESULT INSIDE API.JS fetching the severless function, returned to dashboard')
     const result = await response.json();
     console.log(result)
-    return result.value.join(" ")
+    return result.value
 }
 //////////////////////////////////////////////////////////////
 // export async function fetchYoutubeSummary(textString)

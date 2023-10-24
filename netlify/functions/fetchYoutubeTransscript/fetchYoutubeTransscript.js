@@ -3,8 +3,6 @@ const TEXT_SUM_KEY = process.env.TEXT_SUM_KEY
 
 const handler = async (event) => {
   try {
-    console.log(TEXT_SUM_KEY)
-    console.log(event.body)
     const url = `https://youtube-transcriptor.p.rapidapi.com/transcript?video_id=${event.body}&lang=en`;
     const options = {
             method: 'GET',
@@ -26,7 +24,6 @@ const handler = async (event) => {
         return sentence.subtitle
     })
        
-    console.log(transscript)
     return {
       statusCode: 200,
       body: JSON.stringify(

@@ -2,6 +2,7 @@ import React from 'react'
 import {linkIcon} from '../assets'
 import loaderLogo from '../assets/loader.svg'
 // import fetchTransscript, {fetchYoutubeSummary, fetchArticleSummary, fetchCompleteSummary, fetchPracticeQuestions} from '../functions/api'
+import { fetchYoutubeSummary} from '../functions/api'
 import fetchTransscript from '../functions/api'
 import { v4 as uuidv4 } from 'uuid'
 import { NavLink, Outlet } from 'react-router-dom'
@@ -237,20 +238,16 @@ export default function Dashboard() {
     React.useEffect(() => {
         if (currentSummarizeObject.youtubeId && !currentSummarizeObject.isRan)
         {
-            console.log('inside use effect')
-            console.log(currentSummarizeObject)
             async function fetchTransscriptData() {
                 setLoading(true)
                 try {
                     const data = await fetchTransscript(currentSummarizeObject.youtubeId)
-                    console.log(data)
                     setCurrentSummarizeObject(prevObject => {
                         return {
                             ...prevObject,
                             youtubeTransscript: data }
                    })
                 } catch (error) {
-                    console.log(error)
                     setError(error)
                 } finally {
                     setLoading(false)
@@ -261,27 +258,27 @@ export default function Dashboard() {
         }, [currentSummarizeObject.youtubeId])
 
     // (2) Fetch youtube's video summary with the transscript
-    // React.useEffect(() => {
-    //     if (currentSummarizeObject.youtubeTransscript && !currentSummarizeObject.isRan)
-    //     {
-    //         const transString = currentSummarizeObject.youtubeTransscript.join(' ')
-    //         async function fetchYoutubeSummaryData() {
-    //             setLoading(true)
-    //             try {
-    //                 const data = await fetchYoutubeSummary(transString)
-    //                 setCurrentSummarizeObject(prevObject => {
-    //                     return {
-    //                         ...prevObject,
-    //                         incompleteSummary: data }})
-    //             } catch (error) {
-    //                 setError(error)
-    //             } finally {
-    //                 setLoading(false)
-    //             }
-    //         }
-    //         fetchYoutubeSummaryData()
-    //     }
-    // }, [currentSummarizeObject.youtubeTransscript])
+    React.useEffect(() => {
+        if (currentSummarizeObject.youtubeTransscript && !currentSummarizeObject.isRan)
+        {
+            const transString = currentSummarizeObject.youtubeTransscript
+            async function fetchYoutubeSummaryData() {
+                setLoading(true)
+                try {
+                    const data = await fetchYoutubeSummary(transString)
+                    setCurrentSummarizeObject(prevObject => {
+                        return {
+                            ...prevObject,
+                            incompleteSummary: data }})
+                } catch (error) {
+                    setError(error)
+                } finally {
+                    setLoading(false)
+                }
+            }
+            fetchYoutubeSummaryData()
+        }
+    }, [currentSummarizeObject.youtubeTransscript])
 
      
     // // Fetch article's summary with the url
