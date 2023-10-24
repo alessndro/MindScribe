@@ -8,11 +8,14 @@ const openai = new OpenAI({
 
 const handler = async (event) => {
   try {
-    console.log('inside tutor severless')
-    console.log(event.body)
+    const requestData = JSON.parse(event.body); // Parse the JSON request body
+
+    const shortSummary = requestData.shortSummary;
+    const prevQuestion = requestData.prevQuestion;
+
     const response = await openai.completions.create({
           model:'text-davinci-003',
-          prompt: `You are a highly knowledgeable assistant that is always happy to help. You gave the student the following summary:${event.body.shortSummary}. Now the student asks you ${event.body.prevQuestion}. Respond the question in a friendly and supportive but also concise manner`,
+          prompt: `You are a highly knowledgeable assistant that is always happy to help. You gave the student the following summary:${shortSummary}. Now the student asks you ${prevQuestion}. Respond the question in a friendly and supportive but also concise manner`,
           max_tokens: 500,
           })
       
