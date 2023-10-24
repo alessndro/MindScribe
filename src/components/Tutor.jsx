@@ -11,13 +11,10 @@ export default function Questions() {
 
     const shortSumary = articleObject.completeSummary.shortSummary
     function handleChange(event) {
-        console.log(handleChange)
         setCurrentQuestion(event.target.value)
-        console.log(currentQuestion)
     }
     function handleSubmit(event) {
         event.preventDefault()
-        console.log('handle Submit')
         fetchTutorResponseData(shortSumary, currentQuestion)
         setPrevQuestion(currentQuestion)
         setCurrentQuestion('')

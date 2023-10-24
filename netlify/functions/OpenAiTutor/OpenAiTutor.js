@@ -8,6 +8,7 @@ const openai = new OpenAI({
 
 const handler = async (event) => {
   try {
+    console.log('INSIDE SEVERLESS TUTOR')
     console.log(event.body.shortSummary)
     console.log(event.body.prevQuestion)
     const response = await openai.completions.create({
