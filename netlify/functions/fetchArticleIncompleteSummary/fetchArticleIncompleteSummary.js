@@ -10,7 +10,7 @@ const handler = async (event) => {
             'X-RapidAPI-Host': 'textanalysis-text-summarization.p.rapidapi.com'
         },
         body: new URLSearchParams({
-            url: articleUrl,
+            url: event.body,
             sentnum: '8'
         })
     }
