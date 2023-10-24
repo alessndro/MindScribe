@@ -39,7 +39,8 @@ const handler = async (event) => {
                    correct: questionObject.correctAnswer
                }
             
-          })               
+          })  
+      console.log(newObjectArray)             
       return {
       statusCode: 200,
       body: JSON.stringify({ value: newObjectArray}),
