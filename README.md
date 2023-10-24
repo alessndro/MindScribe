@@ -18,10 +18,6 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![1][contributors-shield]][contributors-url]
-[![0][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
@@ -31,7 +27,7 @@
 
 <h1 align="center">Welcome to MindScribe 👋</h1>
 <p>
-  <img alt="Version" src="https://img.shields.io/badge/version-0.0.0-blue.svg?cacheSeconds=2592000" />
+  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
 </p>
 
 > MindScribe is a revolutionary web application that combines the power of React, React Router, external APIs, and serverless functions to enhance your learning experience. Designed with simplicity and efficiency in mind, MindScribe empowers users with a unique platform for extracting valuable insights from videos or articles, transforming them into comprehensive summaries, and generating practice questions for further engagement.
@@ -125,9 +121,17 @@ Remember to replace `"your-username/your-repository"` with the actual URL of you
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+* React: At the core of Mindscribe is React, a JavaScript library for building user interfaces. React allows for the creation of dynamic and responsive web applications with its component-based architecture.
 
-* [![React][React.js]][React-url]
+* React Router: Mindscribe uses React Router to enable smooth navigation. It provides the ability to create multiple views and routes within a single-page application, enhancing user experience.
+
+* OpenAI API: Mindscribe integrates the OpenAI API to deliver text summarization and generate practice questions. OpenAI's AI models extract key information and create educational content, enhancing the learning experience.
+
+* RapidAPI: To streamline the summarization process, Mindscribe makes use of RapidAPI, a platform that connects developers with a wide range of APIs. RapidAPI facilitates the quick development and integration of third-party services and data sources.
+
+* Additional Libraries: Mindscribe relies on additional libraries and functions to optimize its features. For instance, Firebase is employed for user authentication and Firestore for database management, ensuring secure user interactions and data storage. Various other libraries and functions work together to enhance Mindscribe's overall efficiency and effectiveness.
+
+[![React][React.js]][React-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
