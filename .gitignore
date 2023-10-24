@@ -25,3 +25,6 @@ env
 *.sln
 *.sw?
 
+
+# Local Netlify folder
+.netlify
