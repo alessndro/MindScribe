@@ -1,3 +1,5 @@
+const TEXT_SUM_KEY = process.env.TEXT_SUM_KEY
+
 const handler = async (event) => {
   try {
     const url = 'https://textanalysis-text-summarization.p.rapidapi.com/text-summarizer-text';
