@@ -5,7 +5,7 @@
 
 > MindScribe is a revolutionary web application that combines the power of React, React Router, external APIs, and serverless functions to enhance your learning experience. Designed with simplicity and efficiency in mind, MindScribe empowers users with a unique platform for extracting valuable insights from videos or articles, transforming them into comprehensive summaries, and generating practice questions for further engagement.
 
-### 🚀 [The Story]
+### 🚀 [The Story](https://lighthearted-tulumba-ad8574.netlify.app)
 
 In the fast-paced world of finance and investment, keeping up with educational videos can be a challenge. I found myself in this situation, unable to allocate hours to watch these videos due to my increasingly busy schedule. Still, my passion for staying informed persisted.
 
