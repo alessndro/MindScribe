@@ -250,6 +250,7 @@ export default function Dashboard() {
                             youtubeTransscript: data }
                    })
                 } catch (error) {
+                    console.log(error)
                     setError(error)
                 } finally {
                     setLoading(false)

@@ -46,8 +46,10 @@ import process from 'process';
 // TEST severless function
 export default async function fetchTransscript(youtubeId){
 
+    console.log('Inside Fetch Transscript - API.js')
     const url = 'https://lighthearted-tulumba-ad8574.netlify.app/.netlify/functions/fetchYoutubeTransscript'
     
+    console.log('Fetching to severless function')
     const response = await fetch(url, {
         method: "POST",
         headers: {
