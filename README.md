@@ -124,6 +124,8 @@ Remember to replace `"your-username/your-repository"` with the actual URL of you
 
 * RapidAPI: To streamline the summarization process, Mindscribe makes use of RapidAPI, a platform that connects developers with a wide range of APIs. RapidAPI facilitates the quick development and integration of third-party services and data sources.
 
+* Netlify: Netlify was used for hosting the website. Furthermore, to hide my API keys I made use of severless function and environment variables, which are both part of netlify's features.
+
 * Additional Libraries: Mindscribe relies on additional libraries and functions to optimize its features. For instance, Firebase is employed for user authentication and Firestore for database management, ensuring secure user interactions and data storage. Various other libraries and functions work together to enhance Mindscribe's overall efficiency and effectiveness.
 
 [![React][React.js]][React-url]
