@@ -20,6 +20,18 @@ The development of MindScribe was driven by my determination to create a tool th
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+### 🧠 [The Logic](https://lighthearted-tulumba-ad8574.netlify.app)
+
+The MindScribe website is built on React, serving as the primary framework for its frontend development. Firebase is utilized for user authentication, ensuring secure login processes. Additionally, Firebase functions as the database for storing and managing summaries, streamlining data retrieval and storage.
+
+The development of MindScribe involves the integration of various APIs to enhance the summarization process for both articles and videos. For video content, an initial API is employed to obtain a transcript. Subsequently, for both video and article content, a summarize API from Rapid API is utilized to condense the text before passing it to the OpenAI API.
+
+This two-step summarization process optimizes the utilization of the OpenAI API, enabling the generation of comprehensive summaries with embedded questions. By systematically employing these APIs, MindScribe achieves a nuanced approach to content summarization, ensuring an enriched user experience and facilitating interactive learning.
+
+Netlify plays a crucial role in the implementation of serverless functions and management of environment variables. This combination of technologies aims to create an efficient and dynamic platform, delivering interactive learning and expert guidance beyond traditional content-focused websites
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ### 🏠 [Homepage](https://lighthearted-tulumba-ad8574.netlify.app)
 
 ![Homepage demo](https://github.com/alessndro/MindScribe/blob/main/src/assets/home.gif)
