@@ -413,7 +413,7 @@ export default function Dashboard() {
                 {currentSummarizeObject.completeSummary && 
                     <div className='flex flex-col  bg-white-900 h-full p-10'>
 
-                        <div className='w-full flex justify-between px-20'>
+                        <div className='w-full flex justify-between'>
                         <NavLink
                             style={({isActive}) => isActive ? activeStyle : null}
                             to="."
