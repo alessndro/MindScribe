@@ -12,7 +12,7 @@
 
 ### 🚀 [The Story](https://lighthearted-tulumba-ad8574.netlify.app)
 
-In the fast-paced world of valuable information, keeping up with educational videos can be a challenge. I found myself in this situation, unable to allocate hours to watch these videos due to my increasingly busy schedule. However, my passion for staying informed persisted.
+In the fast-paced world of valuable information, keeping up with educational videos can be a challenge. I found myself in this situation, unable to allocate hours to watch these videos due to my increasingly busy schedule. Still, my passion for staying informed persisted.
 
 To address this need for quick and efficient knowledge absorption, I conceptualized MindScribe. This platform was designed to provide concise summaries of investment-related videos and articles. But it didn't stop there. I wanted it to be a place where users could not only read summaries but also practice and ask questions. MindScribe was conceived as a solution to my own problem, and it soon became evident that many others faced a similar dilemma.
 
